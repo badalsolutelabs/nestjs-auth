@@ -1,0 +1,61 @@
+enum UserRoles {
+  ADMIN
+  STUDENT
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  post: [Post!]!
+  createdAt: String!
+  role: UserRoles!
+}
+
+input SignUpInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  role: UserRoles!
+}
+input LoginInput {
+  email: String!
+  password: String!
+}
+type Post {
+  id: ID!
+  title: String!
+  body: String
+  author: User!
+}
+
+input PostInput {
+  title: String!
+  body: String
+}
+
+type Query {
+  post(id: ID!): Post!
+  posts: [Post!]!
+}
+
+type AuthPayLoad {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+}
+
+type Query {
+  user(id: ID!): User
+  me: User!
+}
+
+type Mutation {
+  signUp(signUpInput: SignUpInput): AuthPayLoad!
+  login(loginInput: LoginInput): AuthPayLoad!
+  createPost(postInput: PostInput): Post!
+}

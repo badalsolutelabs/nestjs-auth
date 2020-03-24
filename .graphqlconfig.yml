@@ -1,0 +1,11 @@
+projects:
+  database:
+    schemaPath: src/schema/gql-api.graphql
+    extensions:
+      endpoints:
+        default: https://us1.prisma.sh/badalk-1afe05/your-mauka-prisma/dev
+      codegen:
+        - generator: prisma-binding
+          language: typescript
+          output:
+            binding: src/prisma/prisma.binding.ts

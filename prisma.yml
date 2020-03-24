@@ -1,0 +1,6 @@
+endpoint: https://us1.prisma.sh/badalk-1afe05/your-mauka-prisma/dev
+datamodel: database/datamodel.prisma
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
